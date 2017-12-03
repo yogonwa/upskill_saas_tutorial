@@ -19,6 +19,15 @@ class ProfilesController < ApplicationController
     end
   end
   
+  #GET to /users/:user_id/profile/edit
+  def edit
+    # Ensure that we have the user who is logged in
+    @user = User.find(params[:user_id] )
+    # Use existing profile linked to this user
+    @profile = @user.profile 
+  end
+  
+  
   private
   def profile_params
     params.require(:profile).permit(:first_name, :last_name, :avatar, :job_title, :phone_number, :contact_email, :description)
