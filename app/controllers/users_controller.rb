@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   
   # When GET is made to /users/
   def index
-    
+    @users = User.includes(:profile)
   end
   
   
